@@ -23,14 +23,37 @@ public class UserResource {
         return userMapper.findAll();
     }
 
-    @GetMapping("/update")
-    public List<Users> update(){
+    @GetMapping("/insert")
+    public List<Users> insert(){
         Users users = new Users();
         users.setName("JiXuan");
-        users.setSalary("4000");
+        users.setSalary(4000L);
 
         userMapper.insert(users);
 
-        return userMapper.findAll()
+        return userMapper.findAll();
+    }
+
+    @GetMapping("/update")
+    public List<Users> update(){
+        Users users = new Users();
+
+        users.setName("Jixuan");
+        users.setSalary(5000L);
+
+        userMapper.update(users);
+
+        return userMapper.findAll();
+    }
+
+    @GetMapping("/delete")
+    public List<Users> delete(){
+        Users users = new Users();
+
+        users.setName("Jixuan");
+
+        userMapper.delete(users);
+
+        return userMapper.findAll();
     }
 }
